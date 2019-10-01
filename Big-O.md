@@ -213,97 +213,98 @@ countSheep(num);
 2. Power Calculator
 
 ```javascript
-function powerCalculator(base, power) {
-  if (power < 0) {
-    return 'should return exponent should be >= 0';
+function powerCalculatorIterative(base, power) {
+  if (power < 0) return 'power should be >= 0';
+  if (power === 0) return 1;
+  let result = base;
+  for (let i = 0; i < power - 1; i++) {
+    result *= base;
   }
-  if (power === 0) {
-    return 1;
-  }
-  if (power === 1) {
-    return base;
-  }
-
-  return base * powerCalculator(base, power - 1);
+  return result;
 }
 
-console.log(powerCalculator(10, 2));
+console.log(powerCalculatorIterative(5, 3))
 ```
 
 3. Reverse String
 
 ```javascript
-function reverseStr(str) {
-  if (str.length === 0) return '';
-  if (str.length === 1) return str;
-  return str.charAt(str.length - 1) + reverseStr(str.slice(0, -1));
+function reverseStringIterative(str) {
+  const splitStr = str.split('');
+  const hold = [];
+  for (let i = splitStr.length; i >= 0; i--) {
+    hold.push(splitStr[i]);
+  }
+  return hold.join('');
 }
 
-const string = 'recursion';
-console.log(reverseStr(string));
+console.log(reverseStringIterative('jabberwocky'));
 ```
 
 4. Nth Triangle Number
 
 ```javascript
-function nthTriangularNumber(n) {
-  if (n === 0 || n === 1) {
-    return n;
+function trianglularNumberIterative(n) {
+  let count = n;
+  for (let i = n - 1; i > 0; i--) {
+    count = count + i;
   }
-  return n + nthTriangularNumber(n - 1);
+  return count;
 }
 
-console.log(nthTriangularNumber(5));
+console.log(trianglularNumberIterative(8))
 ```
 
 5. String Splitter
 
 ```javascript
-function splitString(str, separator) {
-  if (str.length === 0) return str;
-  if (str.length === 1) {
-    if (str === separator) {
-      return '';
-    } else {
-      return str;
-    }
+function splitStringIterative(str, split) {
+  let arr = [];
+  for (let i = 0; i < str.length; i++) {
+    if (str.charAt(i) !== split) arr.push(str.charAt(i));
   }
-  return (
-    splitString(str.slice(0, 1), separator) +
-    splitString(str.slice(1), separator)
-  );
+  return arr.join('');
 }
 
 const string = 're*cur*sion';
 const separator = '*';
-console.log(splitString(string, separator));
+console.log(splitStringIterative(string, separator));
 ```
 
 6. Fibonacci
 
 ```javascript
-function Fibonacci(n) {
-  if (n < 2) {
-    return n;
+function fibonacciIterative(num) {
+  let arr = [];
+  let twoBack = 0;
+  let oneBack = 0;
+  let curr = 1;
+  arr.push(curr);
+  for (let i = 1; i < num; i++) {
+    twoBack = oneBack;
+    oneBack = curr;
+    curr = twoBack + oneBack;
+    arr.push(curr);
   }
-  return Fibonacci(n - 1) + Fibonacci(n - 2);
+  return arr;
 }
 
-console.log(Fibonacci(7));
+console.log(fibonacciIterative(7))
 ```
 
 7. Factorial
 
 ```javascript
-function factorial(n) {
-  if (n <= 0) {
-    return 1;
+function factorialIterative(num) {
+  let temp = 1;
+  for (let i = 1; i <= num; i++) {
+    temp *= i;
   }
-  return n * factorial(n - 1);
+  return temp;
 }
 
 const num = 5;
-console.log(factorial(num));
+console.log(factorialIterative(num));
 ```
 
 ## 13. Recursive Big O
