@@ -31,14 +31,14 @@ hanoi(3, 'S', 'E', 'T');
 // E // 1
 
 // n - 1 from T to E
-// hanoi(2, T, E, S) => hanoi(1,)
+// hanoi(2, T, E, S) => hanoi(1, E, T, S) => Move E to T
 
 // S // 3
 // T // 2 1
 // E //
 
-// 3. n - 1 from T to E
+// etc.
 
-// S // 3
+// S //
 // T // 2 1
-// E //
+// E // 3
