@@ -107,26 +107,24 @@ O(n) - Linear time, because it has to check the result for each integer up to th
 
 ```javascript
 function efficientSearch(array, item) {
-    let minIndex = 0;
-    let maxIndex = array.length - 1;
-    let currentIndex;
-    let currentElement;
+  let minIndex = 0;
+  let maxIndex = array.length - 1;
+  let currentIndex;
+  let currentElement;
 
-    while (minIndex <= maxIndex) {
-        currentIndex = Math.floor((minIndex + maxIndex) / 2);
-        currentElement = array[currentIndex];
+  while (minIndex <= maxIndex) {
+    currentIndex = Math.floor((minIndex + maxIndex) / 2);
+    currentElement = array[currentIndex];
 
-        if (currentElement < item) {
-            minIndex = currentIndex + 1;
-        }
-        else if (currentElement > item) {
-            maxIndex = currentIndex - 1;
-        }
-        else {
-            return currentIndex;
-        }
+    if (currentElement < item) {
+      minIndex = currentIndex + 1;
+    } else if (currentElement > item) {
+      maxIndex = currentIndex - 1;
+    } else {
+      return currentIndex;
     }
-    return -1;
+  }
+  return -1;
 }
 ```
 
@@ -136,7 +134,7 @@ O(log(n)) - Logarithmic time, because the array is cutting in two part every tim
 
 ```javascript
 function findRandomElement(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
+  return arr[Math.floor(Math.random() * arr.length)];
 }
 ```
 
@@ -146,13 +144,13 @@ O(1) - Constant time, because it return one random item from array. The random i
 
 ```javascript
 function isWhat(n) {
-    if (n < 2 || n % 1 != 0) {
-        return false;
-    }
-    for (let i = 2; i < n; ++i) {
-        if (n % i == 0) return false;
-    }
-    return true;
+  if (n < 2 || n % 1 != 0) {
+    return false;
+  }
+  for (let i = 2; i < n; ++i) {
+    if (n % i == 0) return false;
+  }
+  return true;
 }
 ```
 
@@ -161,8 +159,40 @@ O(n) - Linear time, because the function has to check every number up to 'n'.
 ## 11. Tower of Hanoi
 
 ```javascript
-
+function hanoi(num, start, end, temp) {
+  if (num === 1) {
+    console.log(`Moved disc from ${start} to ${end}`);
+    return;
+  } else {
+    hanoi(num - 1, start, temp, end);
+    hanoi(1, start, end, temp);
+    hanoi(num - 1, temp, end, start);
+  }
+}
 ```
+
+Using 5 discs, after 7 recursive calls ('S' for 'start', 'E' for 'end', and 'T' for 'temp'):
+
+`Moved disc from S to E`
+`Moved disc from S to T`
+`Moved disc from E to T`
+`Moved disc from S to E`
+`Moved disc from T to S`
+`Moved disc from T to E`
+
+The end result at this stage looks like :
+
+| Start | Temp | End |
+| ----- | :--: | --: |
+| 1     |      |     |
+| 4     |      |   2 |
+| 5     |      |   3 |
+
+Count for 3 rods: 7
+Count for 4 rods: 15
+Count for 5 rods: 31
+
+O(2^n) - Exponential, because of the recursive steps, each increase in input value increases the number of operations by more than the previous increase in input value.
 
 ## 12. Iterative Version
 

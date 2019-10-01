@@ -9,7 +9,10 @@ function hanoi(num, start, end, temp) {
   }
 }
 
-hanoi(3, 'S', 'E', 'T');
+hanoi(2, 'S', 'E', 'T');
+// hanoi(3, 'S', 'E', 'T');
+// hanoi(4, 'S', 'E', 'T');
+// hanoi(5, 'S', 'E', 'T');
 
 // n = 3
 
