@@ -196,6 +196,116 @@ O(2^n) - Exponential, because of the recursive steps, each increase in input val
 
 ## 12. Iterative Version
 
+1. Count Sheep
+
+```javascript
+function countSheep(n) {
+  for (let i = n; i > 0; i--) {
+    console.log(`${i}: Another sheep jumps over the fence`);
+  }
+  console.log('All sheep jumped over the fence');
+}
+
+const num = 3;
+countSheep(num);
+```
+
+2. Power Calculator
+
+```javascript
+function powerCalculator(base, power) {
+  if (power < 0) {
+    return 'should return exponent should be >= 0';
+  }
+  if (power === 0) {
+    return 1;
+  }
+  if (power === 1) {
+    return base;
+  }
+
+  return base * powerCalculator(base, power - 1);
+}
+
+console.log(powerCalculator(10, 2));
+```
+
+3. Reverse String
+
+```javascript
+function reverseStr(str) {
+  if (str.length === 0) return '';
+  if (str.length === 1) return str;
+  return str.charAt(str.length - 1) + reverseStr(str.slice(0, -1));
+}
+
+const string = 'recursion';
+console.log(reverseStr(string));
+```
+
+4. Nth Triangle Number
+
+```javascript
+function nthTriangularNumber(n) {
+  if (n === 0 || n === 1) {
+    return n;
+  }
+  return n + nthTriangularNumber(n - 1);
+}
+
+console.log(nthTriangularNumber(5));
+```
+
+5. String Splitter
+
+```javascript
+function splitString(str, separator) {
+  if (str.length === 0) return str;
+  if (str.length === 1) {
+    if (str === separator) {
+      return '';
+    } else {
+      return str;
+    }
+  }
+  return (
+    splitString(str.slice(0, 1), separator) +
+    splitString(str.slice(1), separator)
+  );
+}
+
+const string = 're*cur*sion';
+const separator = '*';
+console.log(splitString(string, separator));
+```
+
+6. Fibonacci
+
+```javascript
+function Fibonacci(n) {
+  if (n < 2) {
+    return n;
+  }
+  return Fibonacci(n - 1) + Fibonacci(n - 2);
+}
+
+console.log(Fibonacci(7));
+```
+
+7. Factorial
+
+```javascript
+function factorial(n) {
+  if (n <= 0) {
+    return 1;
+  }
+  return n * factorial(n - 1);
+}
+
+const num = 5;
+console.log(factorial(num));
+```
+
 ## 13. Recursive Big O
 
 ## 14. Iterative Big O
