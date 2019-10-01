@@ -101,15 +101,68 @@ function compute(num) {
 }
 ```
 
-O(1) - Linear time, because it has to check the result for each integer up to the num parameter, meaning that as the input number becomes larger, the time it takes to check each integer grows in direct proportion.
+O(n) - Linear time, because it has to check the result for each integer up to the num parameter, meaning that as the input number becomes larger, the time it takes to check each integer grows in direct proportion.
 
 ## 8. An efficient search
 
+```javascript
+function efficientSearch(array, item) {
+    let minIndex = 0;
+    let maxIndex = array.length - 1;
+    let currentIndex;
+    let currentElement;
+
+    while (minIndex <= maxIndex) {
+        currentIndex = Math.floor((minIndex + maxIndex) / 2);
+        currentElement = array[currentIndex];
+
+        if (currentElement < item) {
+            minIndex = currentIndex + 1;
+        }
+        else if (currentElement > item) {
+            maxIndex = currentIndex - 1;
+        }
+        else {
+            return currentIndex;
+        }
+    }
+    return -1;
+}
+```
+
+O(log(n)) - Logarithmic time, because the array is cutting in two part every time inside of while loop, and the item is searched just in the half array.
+
 ## 9. Random element
+
+```javascript
+function findRandomElement(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+}
+```
+
+O(1) - Constant time, because it return one random item from array. The random index is depending array length.
 
 ## 10. What am I?
 
+```javascript
+function isWhat(n) {
+    if (n < 2 || n % 1 != 0) {
+        return false;
+    }
+    for (let i = 2; i < n; ++i) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+```
+
+O(n) - Linear time, because the function has to check every number up to 'n'.
+
 ## 11. Tower of Hanoi
+
+```javascript
+
+```
 
 ## 12. Iterative Version
 
