@@ -326,9 +326,9 @@ with it a recursive set of calls rather than just one extra call
 7. Factorial: O(n) - Linear, because every increase to the input requires one
 extra recursive call
 8. Maze 1: O(2^n) - Exponential, because every increase in either x or y size of
-input maze multiplies the number of recursive calls that need to be made 
+input maze multiplies the number of recursive calls that need to be made
 9. Maze 2: O(2^n) - Exponential, because every increase in either x or y size of
-input maze multiplies the number of recursive calls that need to be made 
+input maze multiplies the number of recursive calls that need to be made
 10. Aanagrams: O(2^n) - Exponential, because every increase in the characters of
 the input string multiplies the number of recursive calls that need to be made
 on each iteration of the for loop
@@ -338,3 +338,18 @@ on each iteration of the for loop
     problem down ?? -- fuzzy on this one
 
 ## 14. Iterative Big O
+
+1. Count Sheep: O(n) - Linear, because a recursive call must be made for each
+integer up to n, meaning one more for each more of n
+2. Power Calc: O(n) - Linear according to power, because a recursive call must
+be made for each integer up to n, meaning one more for each more of n; but if
+base increases while power stays the same, it is O(1) because the same number of calls get made no matter the value of the base
+3. Reverse String: O(n) - Linear, because each extra letter in the string input
+requires one extra recursive call
+4. Traingle Number: O(n) - Linear, because every increase in value of the input
+requires one extra recursive call
+5. String Splitter: O(n) - Linear according to the string input, because each
+extra character requires one extra recursive call
+6. Fibonacci: O(n) - Linear, because the input number should determine how many operations we need
+7. Factorial: O(n) - Linear, because every increase to the input requires one
+extra recursive call
